@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab 04</title>
+</head>
+<body>
+	<h1>Lab 04</h1>
+	<h2>Online Ordering Website</h2>
+	
+	<script>
+		window.alert("Welcome to my online store!");
+		
+		var customerName;
+		
+		do{
+			customerName = window.prompt("What is your name?");
+		} while (customerName === null || customerName.trim() === "" || !isNaN(customerName));
+		
+		var itemRequested;
+		
+		do{
+		var itemRequested = window.prompt("What item would you like to order?");
+		} while (itemRequested === null || itemRequested.trim() === "" || !isNaN(itemRequested)); 
+		
+		var quantity;
+		var input;
+		
+		do{
+			input = window.prompt("How many items would you like to order? (1-99)");
+			quantity = Number(input);
+		} while (input === null || input.trim() === "" || !Number.isInteger(quantity) || quantity < 1 || quantity > 99);
+		
+		var today = new Date();
+		var hour = today.getHours();
+		
+		var greeting;
+		
+		if (hour < 12) {
+			greeting = "Good Morning";
+		}
+		else if (hour < 17) {
+			greeting = "Good Afternoon";
+		}
+		else {
+			greeting = "Good Evening";
+		}
+		
+		document.write("<h2>" + greeting + ", " + customerName + "!</h2>");
+		
+		document.write("<p>Thank you for ordering!</p>");
+		document.write("<p>Customer Name: " + customerName + "</p>");
+		document.write("<p>Item Requested: " + itemRequested + "</p>");
+		document.write("<p>Quantity: " + quantity + "</p>");
+		
+		var arrivalDate = new Date(today);
+		arrivalDate.setDate(arrivalDate.getDate() + 7);
+		
+		document.write("<p>Expected Arrival Date: " + arrivalDate.toDateString() + "</p>");
+			
+	</script>
+	
+</body>
+</html>
+	
